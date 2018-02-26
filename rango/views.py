@@ -132,16 +132,16 @@ def register(request):
                     # Invalid form or forms - mistakes or something else?
                     # Print problems to the terminal.
                     print user_form.errors, profile_form.errors
-        else:
-            # Not a HTTP POST, so we render our form using two ModelForm instances.
-            # These forms will be blank, ready for user input.
-            user_form = UserForm()
-            profile_form = UserProfileForm()
-            # Render the template depending on the context.
-            return render(request, 'rango/register.html',
-                            {'user_form': user_form,
-                            'profile_form': profile_form,
-                            'registered': registered})
+    else:
+        # Not a HTTP POST, so we render our form using two ModelForm instances.
+        # These forms will be blank, ready for user input.
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+        # Render the template depending on the context.
+        return render(request, 'rango/register.html',
+                        {'user_form': user_form,
+                        'profile_form': profile_form,
+                        'registered': registered})
 
 
 def about(request):
